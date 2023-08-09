@@ -209,8 +209,21 @@
       // Newer IDS go here plz.
     ];
 
+    let skipTheseVideos = new Set([
+      // These are the compilation video IDs.
+      "UnV0rKelEuU", "DV8sKv73iG8", "_Vuguxlsnxg", "rf9jVpAEzhw", "cRhrrA99AJw", "tJiia4LKJXQ", "HDHToH8Rxh8", "MvNAgkz4Cfg", "L4d9rcYGuqE", "RqniOsEzHfA",
+      "VmfmnuDmNmI", "SpVKHTaPwy0", "5cYVamhBL3c", "jrxdkkWO7vA", "LiWKUZKoIy0", "76FU-dW3joA", "s0_F1RlJiHA", "RMOM4EZ4Jdk", "TSW5iuOxDZs", "V3hKciyGBCY",
+      "NBE-RZsdytQ", "4HNAtAT-2IU", "i7KJM-dO9RQ", "kJBIon_JcKA", "2ErlZSqr95w", "z-vFlUsrVIw", "Kcw7ioOAye0", "c44dOyfNxNg", "6_d-REJJx40", "IeMRlyVB63c",
+      "Rm1CD-ObnE8", "M0i45bbt6d8", "OBaxtqfwa6A", "5W7X9CbrF2w", "8ggd5sjkE-s", "UmGh5QgMBq8", "w47yCUmhvEw", "EaJ-FkTH3OQ", "aBfqS-QJEy4", "xJ9hVm9sV8Y",
+      "t5E_65hHC9U", "8fSHXpss7O8", "j4DgnbxnTuE", "TNXex0pHpeM", "5kBYJL6WnlU", "WlbtvMed5xI", "McHaul0HVtY", "FQNH8MpK-ss", "v1kSsqj5Hwc", "vHdh95Lk29Y",
+      "uBziAfhq2CE", "MBL23KNDmFo", "xFzox-482JE", "rs98Es4WH7c", "79Dq3Ojg0mA", "zUfThhgxkME", "rQ1g5JuyFYo", "b7MNx32YCQM", "UiL1M6fAydw", "dumbL6RPJIc",
+      "DQ8h3MgqMnA", "IKcA0DNVau0", "sWITbMCH13Q", "wmMSSAdi0mk", "Fhb4ktiQyZk", "LnTz6ndg73M", "CtSRoHxK1LY", "97IsHsa7F6g", "O9u3QZbEzZg", "nq-1HtiaZNQ",
+      "_rDaNymnGxY", "XVuqV0Y2FP8", "2eFNWM_YXs4",
+    ]);
+
 
     let shuffled = videoIds
+      .filter((x) => !skipTheseVideos.has(x))
       .map(value => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
