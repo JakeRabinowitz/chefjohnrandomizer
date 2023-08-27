@@ -3,9 +3,16 @@
 
 </head>
 <body>
-
-
-  <h1><a id="playlist_link" href="">Random Chef John Playlist</a></h1>
+	<h2>50 Random Chef John Videos!!!</h2>
+    <iframe
+        id='player'
+        width="1280" 
+        height="720" 
+        src="https://www.youtube.com/embed/yHQ-FkiP5Ws?si=ayRUTKUY_clCFUvg" 
+        title="A bunch of Chef John videos!!" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen>
+    </iframe>
 
   <script>
     const videoIds = [
@@ -230,9 +237,9 @@
 
     const playlist = shuffled.slice(0, 50);
 
-    const link = `https://www.youtube.com/watch_videos?video_ids=${playlist.join(",")}`;
+    const embed = `https://www.youtube.com/embed/${playlist[0]}?playlist=${playlist.join(",")}`;
 
-    document.getElementById("playlist_link").href = link;
+    document.getElementById("player").src = embed;
 
   </script>
 </body>
